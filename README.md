@@ -31,10 +31,13 @@ This action updates a container image tag in a Kubernetes deployment file.
 
 - `container-name`: (Required) Name of the container that uses the image. This parameter is used to target only one container.
 
+- `multi-doc-error`: (`ignore|warn|fail`, Default: `warn`) How to handle errors in yml multi-doc files.
+  For 'ignore' and 'warn' the step will not fail if at least one document in the multi-doc could be updated.
+
 
 ## Outputs
 
-- `old-image-tag`: Image tag before replacement.
+- `old-image-tag`: Image tag before replacement. For multi-doc-yaml files, only the last image will tag is considered.
 
 # Scenarios
 

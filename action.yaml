@@ -15,9 +15,15 @@ inputs:
   container-name:
     description: Name of the container that references the image to replace
     required: true
+  multi-doc-error:
+    description: |
+      How to handle errors in yml multi-doc files: (ignore|warn|fail)
+      For 'ignore' and 'warn' the step will not fail if at least one document in the multi-doc could be updated.
+    required: false
+    default: warn
 outputs:
   old-image-tag:
-    description: 'Previous image tag'
+    description: 'Previous image tag. For multi-doc only the last image-tag'
 
 runs:
   using: 'node12'
